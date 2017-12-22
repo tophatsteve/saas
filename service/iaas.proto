@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+service InsultSvc {
+    rpc Generate (Empty) returns (GenerateResponse) {}
+}
+
+message Empty {}
+
+message GenerateResponse {
+    string value = 1;
+}
