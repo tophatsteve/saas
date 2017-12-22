@@ -18,7 +18,11 @@ func main() {
 	}
 	
 	grpcServer := grpc.NewServer()
-	iaas.RegisterInsultSvcServer(grpcServer, iaas.NewService())
+	iaas.RegisterInsultSvcServer(grpcServer, 
+		iaas.NewService(
+			[]string{"Your mother was a hamster, and your father smelt of elderberries."},
+		),
+	)
 
 	go func() {
 		grpcServer.Serve(lis)
