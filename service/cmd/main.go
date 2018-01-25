@@ -4,8 +4,9 @@ import (
 	"net"
 	"os"
 	"os/signal"
-    "google.golang.org/grpc"
-    "github.com/tophatsteve/iaas/service"
+
+	"github.com/tophatsteve/saas/service"
+	"google.golang.org/grpc"
 )
 
 func main() {
@@ -16,10 +17,10 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	
+
 	grpcServer := grpc.NewServer()
-	iaas.RegisterInsultSvcServer(grpcServer, 
-		iaas.NewService(
+	saas.RegisterSarcasmSvcServer(grpcServer,
+		saas.NewService(
 			[]string{"Your mother was a hamster, and your father smelt of elderberries."},
 		),
 	)

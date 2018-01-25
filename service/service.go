@@ -1,16 +1,17 @@
-package iaas
+package saas
 
 import (
-	"golang.org/x/net/context"
 	"math/rand"
 	"time"
+
+	"golang.org/x/net/context"
 )
 
 type Service interface {
 	Generate(ctx context.Context, in *Empty) (*GenerateResponse, error)
 }
 
-type server struct{
+type server struct {
 	messages []string
 }
 
@@ -26,7 +27,7 @@ func (s server) Generate(ctx context.Context, in *Empty) (*GenerateResponse, err
 	return &resp, nil
 }
 
-func (s server)generateMessage() string {
+func (s server) generateMessage() string {
 	i := rand.Intn(len(s.messages))
 	return s.messages[i]
 }

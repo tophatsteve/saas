@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-service InsultSvc {
+service SarcasmSvc {
     rpc Generate (Empty) returns (GenerateResponse) {}
 }
 
