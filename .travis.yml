@@ -22,7 +22,8 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - $HOME/gopath/bin/goveralls -service=travis-ci -coverprofile=c.out
+  - $HOME/gopath/bin/goveralls -service=travis-ci
+  - go test -coverprofile c.out ./...
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
