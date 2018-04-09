@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/tophatsteve/saas/service"
+	saas "github.com/tophatsteve/saas/service"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )
@@ -18,10 +18,14 @@ func main() {
 	}
 	defer conn.Close()
 
-	client := saas.NewSarcasmSvcClient(conn)
+	client := saas.NewSausageSvcClient(conn)
 	ctx := context.Background()
 
 	respGenerate, err := client.Generate(ctx, &saas.Empty{})
+
+	if err != nil {
+		panic(err)
+	}
 
 	fmt.Println(respGenerate.Value)
 }

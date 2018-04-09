@@ -19,9 +19,13 @@ func main() {
 	}
 
 	grpcServer := grpc.NewServer()
-	saas.RegisterSarcasmSvcServer(grpcServer,
+	saas.RegisterSausageSvcServer(grpcServer,
 		saas.NewService(
-			[]string{"Sarcasm is the body's natural defense against stupidity."},
+			[]string{
+				"Cumberland",
+				"Lincolnshire",
+				"Bratwurst",
+			},
 		),
 	)
 

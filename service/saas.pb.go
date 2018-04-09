@@ -70,64 +70,64 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for SarcasmSvc service
+// Client API for SausageSvc service
 
-type SarcasmSvcClient interface {
+type SausageSvcClient interface {
 	Generate(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GenerateResponse, error)
 }
 
-type sarcasmSvcClient struct {
+type sausageSvcClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewSarcasmSvcClient(cc *grpc.ClientConn) SarcasmSvcClient {
-	return &sarcasmSvcClient{cc}
+func NewSausageSvcClient(cc *grpc.ClientConn) SausageSvcClient {
+	return &sausageSvcClient{cc}
 }
 
-func (c *sarcasmSvcClient) Generate(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GenerateResponse, error) {
+func (c *sausageSvcClient) Generate(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GenerateResponse, error) {
 	out := new(GenerateResponse)
-	err := grpc.Invoke(ctx, "/SarcasmSvc/Generate", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/SausageSvc/Generate", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Server API for SarcasmSvc service
+// Server API for SausageSvc service
 
-type SarcasmSvcServer interface {
+type SausageSvcServer interface {
 	Generate(context.Context, *Empty) (*GenerateResponse, error)
 }
 
-func RegisterSarcasmSvcServer(s *grpc.Server, srv SarcasmSvcServer) {
-	s.RegisterService(&_SarcasmSvc_serviceDesc, srv)
+func RegisterSausageSvcServer(s *grpc.Server, srv SausageSvcServer) {
+	s.RegisterService(&_SausageSvc_serviceDesc, srv)
 }
 
-func _SarcasmSvc_Generate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SausageSvc_Generate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SarcasmSvcServer).Generate(ctx, in)
+		return srv.(SausageSvcServer).Generate(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/SarcasmSvc/Generate",
+		FullMethod: "/SausageSvc/Generate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SarcasmSvcServer).Generate(ctx, req.(*Empty))
+		return srv.(SausageSvcServer).Generate(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _SarcasmSvc_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "SarcasmSvc",
-	HandlerType: (*SarcasmSvcServer)(nil),
+var _SausageSvc_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "SausageSvc",
+	HandlerType: (*SausageSvcServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Generate",
-			Handler:    _SarcasmSvc_Generate_Handler,
+			Handler:    _SausageSvc_Generate_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -142,8 +142,8 @@ var fileDescriptor0 = []byte{
 	0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x57, 0x62, 0xe7, 0x62, 0x75, 0xcd, 0x2d, 0x28, 0xa9, 0x54,
 	0xd2, 0xe0, 0x12, 0x70, 0x4f, 0xcd, 0x4b, 0x2d, 0x4a, 0x2c, 0x49, 0x0d, 0x4a, 0x2d, 0x2e, 0xc8,
 	0xcf, 0x2b, 0x4e, 0x15, 0x12, 0xe1, 0x62, 0x2d, 0x4b, 0xcc, 0x29, 0x4d, 0x95, 0x60, 0x54, 0x60,
-	0xd4, 0xe0, 0x0c, 0x82, 0x70, 0x8c, 0x4c, 0xb9, 0xb8, 0x82, 0x13, 0x8b, 0x92, 0x13, 0x8b, 0x73,
+	0xd4, 0xe0, 0x0c, 0x82, 0x70, 0x8c, 0x4c, 0xb9, 0xb8, 0x82, 0x13, 0x4b, 0x8b, 0x13, 0xd3, 0x53,
 	0x83, 0xcb, 0x92, 0x85, 0xd4, 0xb9, 0x38, 0x60, 0xfa, 0x84, 0xd8, 0xf4, 0xc0, 0x66, 0x49, 0x09,
 	0xea, 0xa1, 0x1b, 0xa5, 0xc4, 0x90, 0xc4, 0x06, 0xb6, 0xd0, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff,
-	0x82, 0x5a, 0x74, 0x9f, 0x7e, 0x00, 0x00, 0x00,
+	0xbd, 0xed, 0xeb, 0x8a, 0x7e, 0x00, 0x00, 0x00,
 }
