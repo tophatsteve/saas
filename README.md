@@ -18,7 +18,7 @@ go run main.go
 
 ### Create a container image
 
-Top create a docker container and push it to the Docker Hub registry
+To create a Docker container image and push it to the Docker Hub registry
 
 ```bash
 docker build . -t tophatsteve/saas:latest
